@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { toast } from "react-toastify";
 import "./signup.css";
 
 function Signup() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -29,47 +31,61 @@ function Signup() {
   };
 
   return (
-    <main>
-      <section>
-        <div>
+    <div className="container">
+      <div className="form">
+        <h1 className="text-white text-center m-5">Signup</h1>
+        <form>
           <div>
-            <form>
-              <div>
-                <label htmlFor="email-address">Email address</label>
-                <input
-                  type="email"
-                  label="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="Email address"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  label="Create password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="Password"
-                />
-              </div>
-
-              <button type="submit" onClick={onSubmit}>
-                Sign up
-              </button>
-            </form>
-
-            <p>
-              Already have an account? <NavLink to="/login">Sign in</NavLink>
-            </p>
+            <input
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Email address"
+            />
           </div>
-        </div>
-      </section>
-    </main>
+
+          <div>
+            <input
+              type="password"
+              className="form-control"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Password"
+            />
+          </div>
+
+          <div>
+            <input
+              type="password"
+              className="form-control"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              placeholder="Confirm Password"
+            />
+          </div>
+
+          <button
+            variant="primary"
+            className="btn btn-lg btn-block"
+            type="submit"
+            onClick={onSubmit}
+          >
+            REGISTER
+          </button>
+        </form>
+
+        <p className="message">
+          Already have an account?{" "}
+          <NavLink to="/login" className="signup-link">
+            Sign in
+          </NavLink>
+        </p>
+      </div>
+    </div>
   );
 }
 

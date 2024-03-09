@@ -1,72 +1,76 @@
 import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { NavLink, useNavigate } from "react-router-dom";
+import "./login.css";
+import { toast } from "react-toastify";
 
-const Login = () => {
+function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onLogin = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigate("/home");
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Welcome!");
+      navigate("/home");
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      toast.error("Username or password is incorrect, try again!");
+      console.log(errorCode, errorMessage);
+    }
   };
 
   return (
-    <>
-      <main>
-        <section>
+    <div className="container">
+      <div className="form">
+        <h1 className="text-white text-center m-5">Login</h1>
+        <form>
           <div>
-            <form>
-              <div>
-                <label htmlFor="email-address">Email address</label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="Email address"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <button onClick={onLogin}>Login</button>
-              </div>
-            </form>
-
-            <p className="text-sm text-white text-center">
-              No account yet? <NavLink to="/signup">Sign up</NavLink>
-            </p>
+            <input
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Email address"
+            />
           </div>
-        </section>
-      </main>
-    </>
+
+          <div>
+            <input
+              type="password"
+              className="form-control"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Password"
+            />
+          </div>
+
+          <button
+            variant="primary"
+            className="btn btn-lg btn-block"
+            type="submit"
+            onClick={onSubmit}
+          >
+            SIGN IN
+          </button>
+        </form>
+
+        <p className="message">
+          Don't have an account?{" "}
+          <NavLink to="/signup" className="signup-link">
+            Sign up
+          </NavLink>
+        </p>
+      </div>
+    </div>
   );
-};
+}
 
 export default Login;

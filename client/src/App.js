@@ -5,19 +5,19 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <Router>
-      <div>
-        <section>
-          <Routes>
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
-        </section>
-      </div>
+      <ToastContainer />
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
     </Router>
   );
 }
