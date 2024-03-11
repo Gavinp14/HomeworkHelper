@@ -1,13 +1,13 @@
 body{
-    background-color: #0077ff; 
+    background-color: #36454f  !important; 
 }
 
-.logout-button{
+.logout-button {
     position: fixed;
     top: 20px;
     right: 20px;
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 15px;
     border-radius: 5px;
     border: none;
     background-color: #4fd1c5;

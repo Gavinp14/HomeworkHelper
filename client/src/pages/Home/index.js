@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <div className="main-container">
       <h1 className="text-center text-white mt-4">Homework Planner</h1>
-      <button onClick={handleLogout} className="btn mt-1 logout-button">
+      <button onClick={handleLogout} className=" mt-1 logout-button">
         Logout
       </button>
       <div className="container-fluid">
