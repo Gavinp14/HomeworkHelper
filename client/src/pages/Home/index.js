@@ -4,6 +4,8 @@ import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AddAssignment from "../../components/AddAssignment";
+import AddClass from "../../components/AddClass";
+import ClassList from "../../components/ClassList";
 import "./home.css";
 
 const Home = () => {
@@ -32,8 +34,11 @@ const Home = () => {
         <div className="row">
           <div className="col-sm-4">
             <AddAssignment />
+            <AddClass />
           </div>
-          <div className="col-sm-4"></div>
+          <div className="col-sm-4">
+            <ClassList />
+          </div>
           <div className="col-sm-4"></div>
         </div>
       </div>

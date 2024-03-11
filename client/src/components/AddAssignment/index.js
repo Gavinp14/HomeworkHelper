@@ -22,6 +22,9 @@ function AddAssignment() {
           <option value="low">Low</option>
         </select>
       </div>
+      <button className="btn btn-primary mt-3 add-assignment-button">
+        Add Assignment
+      </button>
     </div>
   );
 }
