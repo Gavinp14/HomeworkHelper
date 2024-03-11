@@ -1,0 +1,55 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif; /* Match the font-family used in the homepage */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+  }
+  
+  /* Style for the container */
+  .add-assignment-container {
+    width: 100%;
+    max-width: 600px; /* Adjust the width as needed */
+    margin: 50px auto; /* Center the container */
+    padding: 20px;
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Match the background color of the homepage */
+  }
+  
+  /* Style for the headings */
+  .add-assignment-container h1 {
+    font-size: 24px; /* Match the font size of the homepage headings */
+    margin-bottom: 20px; /* Add some space below the heading */
+  }
+  
+  /* Style for the input fields */
+  .add-assignment-container input[type="text"],
+  .add-assignment-container input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style for the labels */
+  /* Add to addassignment.css */
+
+/* Style for the dropdown container */
+.add-assignment-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Match the background color of other input fields */
+    font-size: 16px; /* Match the font size */
+  }
+  
+  /* Style for the labels */
+  .add-assignment-container label {
+    font-weight: bold; /* Make labels bold */
+    display: block; /* Ensure labels are displayed as block elements */
+    margin-bottom: 5px; /* Add some space below the label */
+  }
+  

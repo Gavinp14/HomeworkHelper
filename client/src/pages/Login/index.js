@@ -23,6 +23,7 @@ function Login() {
       toast.error("Username or password is incorrect, try again!");
       console.log(errorCode, errorMessage);
     }
+    //add all error cases
   };
 
   return (

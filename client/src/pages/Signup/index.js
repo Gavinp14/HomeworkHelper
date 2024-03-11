@@ -14,11 +14,20 @@ function Signup() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    //check to see if password and confim password match up
+    if (password !== confirmPassword) {
+      toast.error(
+        "Passwords do not match. Please make sure your passwords match."
+      );
+      return;
+    }
+
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
+        // created Account
         const user = userCredential.user;
         console.log(user);
+        toast.success("Account Created!");
         navigate("/login");
         // ...
       })
@@ -26,7 +35,22 @@ function Signup() {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        // ..
+
+        //handle error cases
+        switch (errorCode) {
+          case "auth/email-already-in-use":
+            toast.error("Email address is already in use");
+            break;
+          case "auth/missing-email":
+            toast.error("Please enter email");
+            break;
+          case "auth/missing-password":
+            toast.error("Please enter password");
+            break;
+          default:
+            toast.error("An error occured. Please try again later.");
+        }
+        //add more shit
       });
   };
 
