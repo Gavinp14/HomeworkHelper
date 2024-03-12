@@ -9,6 +9,7 @@ body {
   .add-assignment-container {
     width: 100%;
     max-width: 600px; /* Adjust the width as needed */
+    max-height: 100%;
     margin: 50px auto; /* Center the container */
     padding: 20px;
     border: 1px solid #ccc; /* Add a border */
@@ -53,4 +54,5 @@ body {
     display: block; /* Ensure labels are displayed as block elements */
     margin-bottom: 5px; /* Add some space below the label */
   }
+  
   

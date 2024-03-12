@@ -14,3 +14,7 @@ body{
     color: #fff;
     cursor: pointer;
 }
+
+h1{
+    position: sticky;
+}

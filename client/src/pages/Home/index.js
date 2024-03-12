@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import AddAssignment from "../../components/AddAssignment";
 import AddClass from "../../components/AddClass";
 import ClassList from "../../components/ClassList";
+import AssignmentList from "../../components/AssignmentList";
 import "./home.css";
 
 const Home = () => {
@@ -37,9 +38,11 @@ const Home = () => {
             <AddClass />
           </div>
           <div className="col-sm-4">
+            <AssignmentList />
+          </div>
+          <div className="col-sm-4">
             <ClassList />
           </div>
-          <div className="col-sm-4"></div>
         </div>
       </div>
     </div>
