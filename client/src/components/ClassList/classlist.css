@@ -22,3 +22,16 @@ body {
     font-size: 24px; /* Match the font size of the homepage headings */
     margin-bottom: 20px; /* Add some space below the heading */
   }
+
+  .class-item{
+    display: flex;
+    justify-content: space-between;  
+  }
+
+  .delete-button{
+    color: red;
+  }
+
+  .delete-button:hover{
+    transform: scale(2,2);
+  }

@@ -3,6 +3,7 @@ import "./addassignment.css";
 
 function AddAssignment() {
   //select option contains dummy data for now
+  const dummyData = ["Ethics", "Calculus", "Project Management"];
   return (
     <div className="add-assignment-container">
       <h1>Add Assignment</h1>
@@ -17,9 +18,16 @@ function AddAssignment() {
       <div>
         <label>Select Class</label>
         <select>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
+          {dummyData.map(
+            (
+              classItem,
+              index //dummy data for classes
+            ) => (
+              <option key={index} value={classItem}>
+                {classItem}
+              </option>
+            )
+          )}
         </select>
       </div>
       <button className="btn btn-primary mt-3 add-assignment-button">
